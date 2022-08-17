@@ -1,13 +1,16 @@
 import AspectxBot from "../structures/bot";
 import BotCommand from "../structures/BotCommand";
 import { buttonFiles, commandFiles, modalFiles } from "../utils/files";
-import { REST } from "@discordjs/rest";
 import { Routes } from 'discord-api-types/rest/v10';
+import { REST } from "@discordjs/rest";
 import BotEvent from "../structures/BotEvents";
 import BotModals from "../structures/BotModals";
 import botButtons from "../structures/BotButtons";
+import { APIButtonComponent, APIButtonComponentWithCustomId, ButtonStyle } from "discord.js";
 
-export default class onReadyEvent extends BotEvent<'ready'> {
+const hasId = (button: Partial<APIButtonComponent>): button is Partial<APIButtonComponentWithCustomId> => button.style !== ButtonStyle.Link;
+
+export default class Ready extends BotEvent<'ready'> {
     commands: BotCommand[]
     modals: BotModals[]
     buttons: botButtons[]
@@ -90,13 +93,15 @@ export default class onReadyEvent extends BotEvent<'ready'> {
 
         for (let i = 0; i < this.modals.length; i += 1) {
             const modal = this.modals[i];
-            this.client.modal.set(modal.data.customId!, modal);
+            this.client.modal.set(modal.data.data.custom_id!, modal);
             console.log(`registered modal ${modal.name}`)   
         }
 
         for (let i = 0; i < this.buttons.length; i += 1) {
-            const buttons = this.buttons[i];
-            this.client.button.set(buttons.data.customId!, buttons);
+            const buttons = await this.buttons[i];
+            if(hasId(buttons.data.data)) {
+                this.client.button.set(buttons.data.data.custom_id!, buttons);
+            }
             console.log(`registered buttons ${buttons.name}`)   
         }
 

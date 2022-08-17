@@ -1,10 +1,10 @@
-import { Modal, ModalSubmitInteraction } from "discord.js"
+import { ModalBuilder, ModalSubmitInteraction } from "discord.js"
 import AspectxBot from "./bot"
 
 export default abstract class BotModal {
-    data: Modal
+    data: ModalBuilder
     name: string
-    constructor(name: string, data: Modal) {
+    constructor(name: string, data: ModalBuilder) {
         this.data = data
         this.name = name
     }

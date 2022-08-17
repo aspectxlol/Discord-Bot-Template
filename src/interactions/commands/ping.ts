@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, MessageActionRow, MessageEmbed } from "discord.js";
+import { CommandInteraction, ActionRowBuilder, EmbedBuilder, ButtonBuilder } from "discord.js";
 import testButton from "../buttons/testButton";
 import bot from "../../structures/bot";
 import BotCommand from "../../structures/BotCommand";
@@ -10,7 +10,7 @@ class Ping extends BotCommand {
     }
 
     public async execute(interaction: CommandInteraction, client: bot) {
-        const pingEmbed = new MessageEmbed()
+        const pingEmbed = new EmbedBuilder()
             .setTitle('PONG 🏓')
             .setDescription('the latency between the bot and discord')
             .addFields([
@@ -18,7 +18,7 @@ class Ping extends BotCommand {
                 {name: 'Bot Ping', value: `${Date.now() - interaction.createdTimestamp}ms`, inline: true}
             ])
 
-        const row = new MessageActionRow()
+        const row = new ActionRowBuilder<ButtonBuilder>()
             .addComponents(testButton.data)
         await interaction.reply({embeds: [pingEmbed], components: [row]})
     }

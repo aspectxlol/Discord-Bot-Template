@@ -1,5 +1,4 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, CacheType } from "discord.js";
+import { CommandInteraction, CacheType, SlashCommandBuilder } from "discord.js";
 import testModal from "../modals/testModal";
 import bot from "../../structures/bot";
 import BotCommand from "../../structures/BotCommand";

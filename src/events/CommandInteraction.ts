@@ -1,9 +1,8 @@
-import { CacheType, Interaction, MessageEmbed } from "discord.js";
+import { CacheType, Interaction, EmbedBuilder } from "discord.js";
 import AspectxBot from "../structures/bot";
-import BotCommand from "../structures/BotCommand";
 import BotEvent from "../structures/BotEvents";
 
-export default class onCommandInteractionCreateEvent extends BotEvent<'interactionCreate'> {
+export default class CommandInteraction extends BotEvent<'interactionCreate'> {
     constructor(client: AspectxBot) {
         super(client)
 
@@ -19,7 +18,7 @@ export default class onCommandInteractionCreateEvent extends BotEvent<'interacti
             command?.execute(interaction, this.client);
         } catch (e) {
             if(e instanceof Error) {
-                const embed = new MessageEmbed()
+                const embed = new EmbedBuilder()
                     .setTitle(`${e.name}`)
                     .setDescription(e.message)
 

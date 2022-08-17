@@ -1,19 +1,19 @@
-import { ModalSubmitInteraction, CacheType, Modal, TextInputComponent, MessageActionRow, ModalActionRowComponent } from "discord.js";
+import { ModalSubmitInteraction, CacheType, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } from "discord.js";
 import bot from "../../structures/bot";
 import BotModal from "../../structures/BotModals";
 
-const textInput = new TextInputComponent()
+const textInput = new TextInputBuilder()
     .setCustomId('wthAreYouDoing')
     .setLabel('What the hell are you doing')
-    .setStyle('PARAGRAPH')
+    .setStyle(TextInputStyle.Paragraph)
     .setRequired(true)
 
-const row = new MessageActionRow<ModalActionRowComponent>()
+const row = new ActionRowBuilder<TextInputBuilder>()
     .addComponents(textInput)
 
 class testModal extends BotModal {
     constructor() {
-        super('test', new Modal().setCustomId('test').setTitle('E').addComponents(row))
+        super('test', new ModalBuilder().setCustomId('test').setTitle('E').addComponents(row))
     }
 
     public async execute(interaction: ModalSubmitInteraction<CacheType>, client: bot) {

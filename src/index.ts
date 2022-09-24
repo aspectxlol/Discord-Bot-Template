@@ -1,7 +1,18 @@
-import { ButtonInteraction, CommandInteraction, ModalInteraction, MessageCreate, Ready } from './events'
-import { GatewayIntentBits, Partials } from 'discord.js'
 import AspectxBot from './structures/Bot'
-import { config } from 'dotenv'
+import { 
+    ButtonInteraction, 
+    CommandInteraction, 
+    ModalInteraction, 
+    MessageCreate, 
+    Ready 
+} from './events'
+import { 
+    GatewayIntentBits, 
+    Partials 
+} from 'discord.js'
+import { 
+    config 
+} from 'dotenv'
 config()
 
 const client = new AspectxBot({

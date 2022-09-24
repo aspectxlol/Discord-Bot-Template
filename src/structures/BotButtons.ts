@@ -1,7 +1,10 @@
-import { ButtonInteraction, ButtonBuilder } from "discord.js";
-import AspectxBot from "./bot";
+import AspectxBot from "./Bot";
+import { 
+    ButtonInteraction, 
+    ButtonBuilder 
+} from "discord.js";
 
-export default abstract class botButtons {
+export default abstract class BotButtons {
     data: ButtonBuilder
     name: string
 

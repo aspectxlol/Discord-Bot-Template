@@ -1,12 +1,24 @@
-import AspectxBot from "../structures/bot";
 import BotCommand from "../structures/BotCommand";
-import { buttonFiles, commandFiles, modalFiles } from "../utils/files";
-import { Routes } from 'discord-api-types/rest/v10';
-import { REST } from "@discordjs/rest";
-import BotEvent from "../structures/BotEvents";
-import BotModals from "../structures/BotModals";
 import botButtons from "../structures/BotButtons";
-import { APIButtonComponent, APIButtonComponentWithCustomId, ButtonStyle } from "discord.js";
+import BotModals from "../structures/BotModal";
+import BotEvent from "../structures/BotEvent";
+import AspectxBot from "../structures/Bot";
+import { 
+    REST
+} from "@discordjs/rest";
+import { 
+    APIButtonComponent,
+    APIButtonComponentWithCustomId,
+    ButtonStyle 
+} from "discord.js";
+import { 
+    buttonFiles, 
+    commandFiles, 
+    modalFiles 
+} from "../utils/files";
+import { 
+    Routes 
+} from 'discord-api-types/rest/v10';
 
 const hasId = (button: Partial<APIButtonComponent>): button is Partial<APIButtonComponentWithCustomId> => button.style !== ButtonStyle.Link;
 

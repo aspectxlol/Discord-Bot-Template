@@ -1,6 +1,14 @@
-import { ModalSubmitInteraction, CacheType, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } from "discord.js";
-import bot from "../../structures/bot";
-import BotModal from "../../structures/BotModals";
+
+import BotModal from "../../structures/BotModal";
+import bot from "../../structures/Bot";
+import { 
+    ModalSubmitInteraction, 
+    CacheType, 
+    ModalBuilder, 
+    ActionRowBuilder, 
+    TextInputBuilder, 
+    TextInputStyle 
+} from "discord.js";
 
 const textInput = new TextInputBuilder()
     .setCustomId('wthAreYouDoing')
@@ -11,7 +19,7 @@ const textInput = new TextInputBuilder()
 const row = new ActionRowBuilder<TextInputBuilder>()
     .addComponents(textInput)
 
-class testModal extends BotModal {
+class Modal extends BotModal {
     constructor() {
         super('test', new ModalBuilder().setCustomId('test').setTitle('E').addComponents(row))
     }
@@ -22,4 +30,4 @@ class testModal extends BotModal {
     }
 }
 
-export default new testModal()
+export default new Modal()

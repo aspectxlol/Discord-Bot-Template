@@ -1,9 +1,13 @@
-import { Client, ClientOptions, Collection } from "discord.js";
 import botButtons from "./BotButtons";
 import BotCommand from "./BotCommand";
-import BotModal from "./BotModals";
+import BotModal from "./BotModal";
+import { 
+    Client, 
+    ClientOptions, 
+    Collection 
+} from "discord.js";
 
-export default class AspectxBot extends Client {
+export default class Bot extends Client {
     commands: Collection<string, BotCommand>
     modal: Collection<string, BotModal>
     button: Collection<string, botButtons>

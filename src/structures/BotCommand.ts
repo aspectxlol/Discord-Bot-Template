@@ -1,6 +1,10 @@
-import { RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types/v10'
-import { CommandInteraction } from 'discord.js'
-import AspectxBot from './bot'
+import AspectxBot from './Bot'
+import { 
+    CommandInteraction 
+} from 'discord.js'
+import { 
+    RESTPostAPIApplicationCommandsJSONBody 
+} from 'discord-api-types/v10'
 
 export default abstract class BotCommand {
     data: RESTPostAPIApplicationCommandsJSONBody

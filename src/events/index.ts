@@ -1,13 +1,5 @@
-import ButtonInteraction from "./ButtonInteraction"
-import CommandInteraction from "./CommandInteraction"
-import MessageCreate from "./MessageCreate"
-import ModalInteraction from "./ModalInteraction"
-import Ready from "./Ready"
-
-export {
-    CommandInteraction,
-    MessageCreate,
-    ButtonInteraction,
-    Ready,
-    ModalInteraction
-}
+export { default as CommandInteraction } from './CommandInteraction'
+export { default as ButtonInteraction } from './ButtonInteraction'
+export { default as ModalInteraction } from './ModalInteraction'
+export { default as MessageCreate } from './MessageCreate'
+export { default as Ready } from './Ready'

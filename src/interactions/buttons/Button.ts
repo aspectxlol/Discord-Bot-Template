@@ -1,6 +1,11 @@
-import { ButtonInteraction, CacheType, ButtonBuilder, ButtonStyle } from "discord.js";
-import bot from "../../structures/bot";
 import botButtons from "../../structures/BotButtons";
+import bot from "../../structures/Bot";
+import { 
+    ButtonInteraction, 
+    CacheType, 
+    ButtonBuilder, 
+    ButtonStyle 
+} from "discord.js";
 
 class testButton extends botButtons {
     constructor() {

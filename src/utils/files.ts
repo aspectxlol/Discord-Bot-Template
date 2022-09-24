@@ -1,6 +1,12 @@
 import path from "path";
 import fs from "fs";
 
+/**
+ * credit where credit goes
+ * Credit to: Conaticus 
+ * on: https://github.com/conaticus/boolean
+ */
+
 const walk = (
     pathLike: fs.PathLike,
     options?:

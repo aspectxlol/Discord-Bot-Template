@@ -1,9 +1,13 @@
-import { CommandInteraction, CacheType, SlashCommandBuilder } from "discord.js";
-import testModal from "../modals/testModal";
-import bot from "../../structures/bot";
 import BotCommand from "../../structures/BotCommand";
+import testModal from "../modals/Modal";
+import bot from "../../structures/Bot";
+import { 
+    CommandInteraction, 
+    CacheType, 
+    SlashCommandBuilder 
+} from "discord.js";
 
-class modal extends BotCommand {
+class Modal extends BotCommand {
     constructor() {
         super(new SlashCommandBuilder().setName('modal').setDescription('shows a test modal').toJSON())
     }
@@ -12,4 +16,4 @@ class modal extends BotCommand {
     }
 }
 
-export default new modal()
+export default new Modal()

@@ -1,5 +1,7 @@
-import { ClientEvents } from "discord.js";
-import AspectxBot from "./bot";
+import AspectxBot from "./Bot";
+import { 
+    ClientEvents 
+} from "discord.js";
 
 export default abstract class BotEvent<T extends EventName> {
     client: AspectxBot 

@@ -1,8 +1,13 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, ActionRowBuilder, EmbedBuilder, ButtonBuilder } from "discord.js";
-import testButton from "../buttons/testButton";
-import bot from "../../structures/bot";
 import BotCommand from "../../structures/BotCommand";
+import testButton from "../buttons/Button";
+import bot from "../../structures/Bot";
+import { 
+    CommandInteraction, 
+    ActionRowBuilder, 
+    EmbedBuilder, 
+    ButtonBuilder,
+    SlashCommandBuilder
+} from "discord.js";
 
 class Ping extends BotCommand {
     constructor() {

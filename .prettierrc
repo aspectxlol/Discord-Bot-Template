@@ -1,0 +1,9 @@
+{
+	"tabWidth": 2,
+	"useTabs": true,
+	"endOfLine": "auto",
+	"quoteProps": "consistent",
+	"singleQuote": true,
+	"semi": true,
+	"editorconfig": true
+}

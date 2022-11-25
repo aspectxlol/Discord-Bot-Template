@@ -1,13 +1,13 @@
 import BotEvent from '../structures/BotEvent';
-import AspectxBot from '../structures/Bot';
 import { CacheType, Interaction, EmbedBuilder } from 'discord.js';
+import Bot from '../structures/Bot';
 
 export default class CommandInteraction extends BotEvent<'interactionCreate'> {
-	constructor(client: AspectxBot) {
+	constructor(client: Bot) {
 		super(client);
 	}
 
-	public execute(interaction: Interaction<CacheType>): void {
+	public async execute(interaction: Interaction<CacheType>): Promise<any> {
 		if (!interaction.isCommand()) return;
 		const command = this.client.commands.get(
 			interaction.commandName.toString()

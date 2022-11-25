@@ -1,16 +1,13 @@
-import AspectxBot from './structures/Bot';
+import Bot from './structures/Bot';
 import {
-	ButtonInteraction,
 	CommandInteraction,
-	ModalInteraction,
 	MessageCreate,
 	Ready,
 } from './events';
 import { GatewayIntentBits, Partials } from 'discord.js';
-import { config } from 'dotenv';
-config();
+import 'dotenv/config';
 
-const client = new AspectxBot({
+const client = new Bot({
 	intents: [
 		GatewayIntentBits.Guilds,
 		GatewayIntentBits.GuildMembers,
@@ -25,20 +22,8 @@ const client = new AspectxBot({
 	],
 });
 
-client.on('ready', () => {
-	new Ready(client).execute();
-});
-client.on('interactionCreate', (interaction) => {
-	new ButtonInteraction(client).execute(interaction);
-});
-client.on('interactionCreate', (interaction) => {
-	new ModalInteraction(client).execute(interaction);
-});
-client.on('interactionCreate', (interaction) => {
-	new CommandInteraction(client).execute(interaction);
-});
-client.on('messageCreate', (message) => {
-	new MessageCreate(client).execute(message);
-});
+client.on('ready', () => { new Ready(client).execute(); });
+client.on('interactionCreate', (interaction) => { new CommandInteraction(client).execute(interaction); });
+client.on('messageCreate', (message) => { new MessageCreate(client).execute(message); });
 
 client.login(process.env.TOKEN);

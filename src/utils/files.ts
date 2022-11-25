@@ -32,13 +32,5 @@ const walk = (
 };
 
 export const commandFiles = walk(
-	path.join(__dirname, '../interactions/commands')
-).filter((file) => ['.ts', '.js'].some((ext) => file.endsWith(ext)));
-
-export const modalFiles = walk(
-	path.join(__dirname, '../interactions/modals')
-).filter((file) => ['.ts', '.js'].some((ext) => file.endsWith(ext)));
-
-export const buttonFiles = walk(
-	path.join(__dirname, '../interactions/buttons')
+	path.join(__dirname, '../commands')
 ).filter((file) => ['.ts', '.js'].some((ext) => file.endsWith(ext)));

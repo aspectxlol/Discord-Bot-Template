@@ -1,6 +1,5 @@
-import AspectxBot from './Bot';
-import { CommandInteraction } from 'discord.js';
-import { RESTPostAPIApplicationCommandsJSONBody } from 'discord-api-types/v10';
+import Bot from './Bot';
+import { CommandInteraction, RESTPostAPIApplicationCommandsJSONBody } from 'discord.js';
 
 export default abstract class BotCommand {
 	data: RESTPostAPIApplicationCommandsJSONBody;
@@ -10,6 +9,6 @@ export default abstract class BotCommand {
 
 	public abstract execute(
 		interaction: CommandInteraction,
-		client: AspectxBot
-	): any;
+		client: Bot
+	): Promise<any>;
 }

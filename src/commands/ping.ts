@@ -1,11 +1,8 @@
-import BotCommand from '../../structures/BotCommand';
-import testButton from '../buttons/Button';
-import bot from '../../structures/Bot';
+import BotCommand from '../structures/BotCommand';
+import bot from '../structures/Bot';
 import {
 	CommandInteraction,
-	ActionRowBuilder,
 	EmbedBuilder,
-	ButtonBuilder,
 	SlashCommandBuilder,
 } from 'discord.js';
 
@@ -31,11 +28,7 @@ class Ping extends BotCommand {
 					inline: true,
 				},
 			]);
-
-		const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
-			testButton.data
-		);
-		await interaction.reply({ embeds: [pingEmbed], components: [row] });
+		await interaction.reply({ embeds: [pingEmbed] });
 	}
 }
 
